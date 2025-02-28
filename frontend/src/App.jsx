@@ -6,7 +6,7 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import Home from './pages/Home/Home.jsx';
-import Workspace from './pages/Workspace/Workspace.jsx';
+import { Workspace } from './pages/Workspace/Workspace.jsx';
 import SignUp from './pages/SignUp/SignUp.jsx';
 import { getUserToken } from './utils/localStorage.js';
 import Login from './pages/Login/Login.jsx';

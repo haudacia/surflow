@@ -4,7 +4,7 @@ import { getUserToken, removeUserSession, setUserSession } from './localStorage'
 export const api = () => {
   const token = getUserToken();
   return axios.create({
-    baseURL: process.env.REACT_APP_BACKEND_URL,
+    baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3001',
     headers: {
       'Content-Type': 'application/json',
       authorization: `Bearer ${token}`,
