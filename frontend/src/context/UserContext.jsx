@@ -1,81 +1,53 @@
-
-
 import { createContext, useContext, useEffect, useState } from 'react';
-import { api } from '../utils/api';
-import { getUserToken, getUserSession, setUserSession, removeUserSession } from '../utils/localStorage';
+import { getUserSession } from '../utils/localStorage';
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [userId, setUserId] = useState(getUserSession()?.id);
-  const [userEmail, setUserEmail] = useState(getUserSession()?.email);
-  const [userName, setUserName] = useState(getUserSession()?.name);
+  const [userId, setUserId] = useState();
+  const [userEmail, setUserEmail] = useState();
+  const [userName, setUserName] = useState();
 
   useEffect(() => {
     const session = getUserSession();
-    // console.log('Session on mount:', session);
     if (session) {
       setUserId(session.id);
       setUserName(session.name);
       setUserEmail(session.email);
     }
-  }, []);
+  }, [userId, userName, userEmail]);
 
   const setUserInContext = () => {
     const session = getUserSession();
     if (session) {
-      // console.log('setting user in context after login/signup')
-      setUserId(session.id);
-      setUserName(session.name);
-      setUserEmail(session.email);
-      console.log('userId', userId, userName, userEmail)
+      if (session.id !== userId) {
+        setUserId(session.id);
+        // console.log('new userId was set:', session.id);
+      }
+
+      if (session.name !== userName) {
+        setUserName(session.name);
+        // console.log('new userName was set:', session.name);
+      }
+
+      if (session.email !== userEmail) {
+        setUserEmail(session.email);
+        // console.log('new userEmail was set:', session.email);
+      }
     }
   };
 
+  const clearUserContext = () => {
+      setUserId(undefined);
+      setUserEmail(undefined);
+      setUserName(undefined);
+  }
+
   return (
-    <UserContext.Provider value={{ userId, userEmail, userName, setUserInContext }}>
+    <UserContext.Provider value={{ userId, userEmail, userName, setUserInContext, clearUserContext }}>
       {children}
     </UserContext.Provider>
   )
 };
 
 export const useUserProvider = () => useContext(UserContext);
-
-// import { createContext, useContext, useEffect, useState } from 'react';
-// import { api } from '../utils/api';
-// import { getUserToken, getUserSession, setUserSession, removeUserSession } from '../utils/localStorage';
-
-// const UserContext = createContext();
-
-// export const UserProvider = ({ children }) => {
-//   const [userId, setUserId] = useState(undefined);
-//   const [userEmail, setUserEmail] = useState(undefined);
-//   const [userName, setUserName] = useState(undefined);
-
-//   useEffect(() => {
-//     const session = getUserSession();
-//     console.log('Session on mount:', session);
-//     if (session) {
-//       setUserId(session.id);
-//       setUserName(session.name);
-//       setUserEmail(session.email);
-//     }
-//   }, []);
-
-//   const setUserInContext = () => {
-//     const session = getUserSession();
-//     if (session) {
-//       setUserId(session.id);
-//       setUserName(session.name);
-//       setUserEmail(session.email);
-//     }
-//   };
-
-//   return (
-//     <UserContext.Provider value={{ userId, userEmail, userName, setUserInContext }}>
-//       {children}
-//     </UserContext.Provider>
-//   )
-// };
-
-// export const useUserProvider = () => useContext(UserContext);

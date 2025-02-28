@@ -9,12 +9,12 @@ import { useCustomFormProvider, withCustomFormProvider } from '../../context/For
 import { useQueryClient } from 'react-query';
 
 
-const Workspace = withCustomFormProvider(() => {
+export const Workspace = withCustomFormProvider(() => {
   const { handleSubmit, reset } = useCustomFormProvider();
   const navigate = useNavigate();
   const { forms } = useForms();
   const queryClient = useQueryClient();
-
+  
   const handleCreate = (data) => {
     api()
       .post('/form', data)

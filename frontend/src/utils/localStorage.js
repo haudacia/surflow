@@ -29,7 +29,7 @@ const getUserSession = () => {
     if (session) {
         return session.user;
     } else {
-        return null;
+        return undefined;
     }
 };
 

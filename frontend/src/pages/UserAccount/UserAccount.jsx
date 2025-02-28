@@ -1,16 +1,10 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import SmallButton from '../../components/Buttons/SmallButton.jsx';
 import { FileInput } from '../../components/FileInput/FileInput.jsx';
-import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
-import { useEffect, useState } from 'react';
-import { handleDeleteUser } from '../../utils/api.js';
 import { useUserProvider } from '../../context/UserContext.jsx';
-import { getUserSession, removeUserSession } from '../../utils/localStorage.js';
 import UserNavbar from '../../components/UserNavbar/UserNavbar.jsx';
 import DeleteUser from './DeleteUser.jsx';
 
 const UserAccount = () => {
-    const { userId, userEmail } = useUserProvider();
+    const { userEmail } = useUserProvider();
 
     return (
         <div className={'bg-custom-gradient bg-cover h-screen w-screen justify-center'}>
@@ -20,7 +14,6 @@ const UserAccount = () => {
                 {/* <SmallButton text='Change Username' className='w-[250px]' onClick={() => console.log('should allow user to change username')} /> */}
                 <FileInput />
                 <DeleteUser />
-
                 <div>
                     {/* <ProfileIcon /> */}
                 </div>

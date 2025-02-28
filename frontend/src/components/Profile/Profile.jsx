@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserProvider } from '../../context/UserContext';
-import { getUserSession, removeUserSession } from '../../utils/localStorage';
+import { removeUserSession } from '../../utils/localStorage';
 import ProfilePicture from '../ProfilePicture/ProfilePicture';
 import { useQuery } from 'react-query';
 import { fetchUserData } from '../../utils/api';
@@ -9,7 +9,7 @@ import { fetchUserData } from '../../utils/api';
 
 const ProfileIcon = ({ accountSettingsId, profileIconId }) => {
   const navigate = useNavigate();
-  const { userId, userName } = useUserProvider();
+  const { userId, clearUserContext } = useUserProvider();
 
   const { data: user } = useQuery(
     ['user', userId],
@@ -19,6 +19,7 @@ const ProfileIcon = ({ accountSettingsId, profileIconId }) => {
 
   const handleLogout = () => {
     removeUserSession();
+    clearUserContext();
     navigate('/login')
   }
 
