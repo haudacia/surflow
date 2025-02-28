@@ -15,7 +15,6 @@ const Login = () => {
   const { setUserInContext } = useUserProvider();
 
   const onSubmit = (data) => {
-    console.log(data)
     api().post('/login', data)
       .then((response) => {
         setUserSession(response.data);

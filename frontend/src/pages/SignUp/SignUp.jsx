@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { api } from '../../utils/api';
 import { useMutation } from 'react-query';
 import { setUserSession } from '../../utils/localStorage';
-import { useNavigate } from 'react-router-dom';
+import { useHref, useNavigate } from 'react-router-dom';
 import LargeButton from '../../components/Buttons/LargeButton.jsx';
 import Input from '../../components/Form/Input.jsx';
 import { useUserProvider } from '../../context/UserContext.jsx';
@@ -22,10 +22,12 @@ const SignUp = () => {
   const newUser = async (data) => {
     try {
       const response = await api().post('/signup', data);
+      console.log(response.user)
+
       if (response?.data.token) {
         setUserSession(response.data);
         setUserInContext();
-        navigate('/workspace');
+
       }
       return response.data;
     } catch (err) {
@@ -37,7 +39,6 @@ const SignUp = () => {
   const mutation = useMutation(newUser, {
     onSuccess: () => {
       setError(null);
-      setUserInContext();
       navigate('/workspace');
     },
     onError: (error) => {

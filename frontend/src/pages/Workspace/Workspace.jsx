@@ -14,7 +14,7 @@ export const Workspace = withCustomFormProvider(() => {
   const navigate = useNavigate();
   const { forms } = useForms();
   const queryClient = useQueryClient();
-
+  
   const handleCreate = (data) => {
     api()
       .post('/form', data)
@@ -54,4 +54,4 @@ export const Workspace = withCustomFormProvider(() => {
   );
 });
 
-// export default Workspace;
+export default Workspace;

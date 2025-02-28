@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getUserToken, removeUserSession, setUserSession } from './localStorage';
+import { getUserToken } from './localStorage';
 
 export const api = () => {
   const token = getUserToken();
@@ -62,8 +62,10 @@ export const handleUpdateProfilePicture = async (userId, profilePictureUrl) => {
 
 export const fetchUserData = async (userId) => {
   try {
-    const res = await api().get(`/user/${userId}`);
-    return res.data;
+    if (userId) {
+      const res = await api().get(`/user/${userId}`);
+      return res.data
+    }
   } catch (error) {
     console.error('Error fetching user data', error);
     throw new Error('Error fetching user data');
