@@ -19,7 +19,7 @@ const Login = () => {
       .then((response) => {
         setUserSession(response.data);
         setUserInContext();
-        navigate('/workspace');
+        window.location.href = "/workspace";
       })
       .catch((error) => {
         setError(error.response.data.error);

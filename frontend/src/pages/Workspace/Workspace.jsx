@@ -12,7 +12,7 @@ import { useQueryClient } from 'react-query';
 export const Workspace = withCustomFormProvider(() => {
   const { handleSubmit, reset } = useCustomFormProvider();
   const navigate = useNavigate();
-  const { forms } = useForms();
+  const { forms, isLoading } = useForms();
   const queryClient = useQueryClient();
   
   const handleCreate = (data) => {
@@ -40,10 +40,10 @@ export const Workspace = withCustomFormProvider(() => {
               <MediumButton text="Create new form" onClick={handleSubmit(handleCreate)} />
             </div>
             <div className="col-span-1"></div>
-            {forms && forms.length > 0 ? (
-              forms.map((form) => (
-                <FormCard key={form._id} form={form} />
-              ))
+            {isLoading ? (
+              <p>Loading forms...</p>
+            ) : forms && forms.length > 0 ? (
+              forms.map((form) => <FormCard key={form._id} form={form} />)
             ) : (
               <p>{emptyWorkspaceMessage}</p>
             )}
