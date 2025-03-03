@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { getUserToken } from './localStorage';
 
+const apiUrl = process.env.REACT_APP_SERVER_URL
+
 export const api = () => {
   const token = getUserToken();
   return axios.create({
@@ -12,6 +14,9 @@ export const api = () => {
     },
   });
 };
+
+console.log(apiUrl); // It should print https://surflow.onrender.com
+
 
 export const handleDeleteForm = async (formId) => {
   const res = await api().delete(`/form/${formId}`);
