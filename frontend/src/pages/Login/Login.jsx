@@ -47,7 +47,7 @@ const Login = () => {
                 pattern: { value: /^\S+@\S+$/i, message: 'Invalid email format' },
               })}
             />
-            {error.email &&
+            {error?.email &&
               <p
                 id="email_error"
                 className="text-red-600 text-sm font-space mono">
@@ -65,7 +65,7 @@ const Login = () => {
                 required: { value: true, message: 'Password is required' }
               })}
             />
-            {error.password &&
+            {error?.password &&
               <p
                 id="password_error"
                 className="text-red-600 text-sm font-space mono">
