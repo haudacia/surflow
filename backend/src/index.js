@@ -4,11 +4,7 @@ const cors = require('cors');
 const app = express();
 const router = require('./routers/router');
 
-// app.use(cors());
-
-app.use(cors({
-  origin: process.env.REACT_APP_CLIENT_URL,
-}));
+app.use(cors());
 
 app.use(express.json());
 
