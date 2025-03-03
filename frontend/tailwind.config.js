@@ -12,9 +12,19 @@ module.exports = {
         '4xl': '3rem',
       },
       backgroundImage: {
+        // 'dotted_pattern': 'url(./assets/grainy.svg)',
         // 'custom-gradient-2': '#ff0000',
-        // 'custom-gradient': 'linear-gradient(45deg, rgba(226, 222, 243,1) 0%, rgb(240, 255, 255) 100%)',
-        'custom-gradient': 'linear-gradient(45deg, rgba(168,165,200,1) 0%, rgba(192,192,230,1) 43%, rgb(227, 230, 227) 100%)',
+        'custom-gradient': 'linear-gradient(45deg, rgba(226, 222, 243,1) 0%, rgb(240, 255, 255) 100%)',
+        // 'custom-gradient': 'linear-gradient(45deg, rgba(168,165,200,1) 0%, rgba(192,192,230,1) 43%, rgb(227, 230, 227) 100%)',
+      },
+      backgroundSize: {
+        'dotted_pattern': '300px 300px',
+      },
+      backgroundRepeat: {
+        'dotted_pattern': 'repeat',
+      },
+      backgroundPosition: {
+        'dotted_pattern': 'center',
       },
       colors: {
         azure: 'rgb(192,192, 230)'

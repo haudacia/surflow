@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-deploy-to-koyeb:
+  build-deploy-to-render:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -24,17 +24,17 @@ jobs:
 
       - name: 'Build Backend Image'
         run: |
-          docker build . --tag ghcr.io/nds-fsd/surflow:${{ github.sha }}
-          docker push ghcr.io/nds-fsd/surflow:${{ github.sha }}
+          docker build . --tag ghcr.io/haudacia/surflow:${{ github.sha }}
+          docker push ghcr.io/haudacia/surflow:${{ github.sha }}
 
-      - name: Install and configure the Koyeb CLI
-        uses: koyeb-community/install-koyeb-cli@v2
-        with:
-          api_token: "${{ secrets.KOYEB_TOKEN }}"
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Install and configure the Render CLI
+        run: |
+          curl -sSL https://cli.render.com/install | bash
+          echo "export PATH=\$PATH:/root/.render/bin" >> ~/.bashrc
+          source ~/.bashrc
 
-      - name: Update image in koyeb
-        run: koyeb service update surflow/proposed-ira --docker ghcr.io/nds-fsd/surflow:${{ github.sha }}
+      - name: Update image in Render
+        run: render deploy --image ghcr.io/haudacia/surflow:${{ github.sha }} --service surflow-proposed-ira
 
-      - name: Redeploy service in koyeb
-        run: koyeb service redeploy surflow/proposed-ira
+      - name: Redeploy service in Render
+        run: render redeploy surflow-proposed-ira
