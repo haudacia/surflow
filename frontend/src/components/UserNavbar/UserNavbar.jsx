@@ -12,14 +12,12 @@ import { handleDeleteForm } from '../../utils/api';
 const UserNavbar = ({ isCreateMode, showProfileIcon = true }) => {
     const { id } = useParams();
     const navigate = useNavigate();
-
     const [isModalOpen, setIsModalOpen] = useState(false);
-
 
     const confirmDelete = (id) => {
         handleDeleteForm(id);
         setIsModalOpen(false);
-        navigate('/workspace')
+        window.location.replace("/workspace");
     };
 
     return (

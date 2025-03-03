@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { api } from '../../utils/api';
 import { useMutation } from 'react-query';
 import { setUserSession } from '../../utils/localStorage';
-import { useHref, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LargeButton from '../../components/Buttons/LargeButton.jsx';
 import Input from '../../components/Form/Input.jsx';
 import { useUserProvider } from '../../context/UserContext.jsx';
@@ -39,7 +39,7 @@ const SignUp = () => {
   const mutation = useMutation(newUser, {
     onSuccess: () => {
       setError(null);
-      navigate('/workspace');
+      window.location.href = '/workspace';
     },
     onError: (error) => {
       setError(error);
