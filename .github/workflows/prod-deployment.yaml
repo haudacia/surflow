@@ -27,14 +27,15 @@ jobs:
           docker build . --tag ghcr.io/haudacia/surflow:${{ github.sha }}
           docker push ghcr.io/haudacia/surflow:${{ github.sha }}
 
-      - name: Install and configure the Render CLI
+      - name: 'Install Render CLI'
         run: |
           curl -sSL https://cli.render.com/install | bash
           echo "export PATH=\$PATH:/root/.render/bin" >> ~/.bashrc
           source ~/.bashrc
+          which render
 
-      - name: Update image in Render
+      - name: 'Deploy to Render'
         run: render deploy --image ghcr.io/haudacia/surflow:${{ github.sha }} --service surflow-proposed-ira
 
-      - name: Redeploy service in Render
+      - name: 'Redeploy service in Render'
         run: render redeploy surflow-proposed-ira
