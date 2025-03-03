@@ -1,4 +1,4 @@
-name: Production Pipeline
+name: Deploy to Render
 
 on:
   push:
@@ -6,36 +6,34 @@ on:
       - main
 
 jobs:
-  build-deploy-to-render:
+  deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: './backend'
-    steps:
-      - name: 'Checkout GitHub Action'
-        uses: actions/checkout@main
+    permissions:
+      deployments: write
 
-      - name: 'Login to GitHub Container Registry'
-        uses: docker/login-action@v1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{github.actor}}
-          password: ${{secrets.GITHUB_TOKEN}}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 'Build Backend Image'
+      - name: Build and push Docker image
         run: |
           docker build . --tag ghcr.io/haudacia/surflow:${{ github.sha }}
           docker push ghcr.io/haudacia/surflow:${{ github.sha }}
 
-      - name: 'Install Render CLI'
-        run: |
-          curl -sSL https://cli.render.com/install | bash
-          echo "export PATH=\$PATH:/root/.render/bin" >> ~/.bashrc
-          source ~/.bashrc
-          which render
-
-      - name: 'Deploy to Render'
-        run: render deploy --image ghcr.io/haudacia/surflow:${{ github.sha }} --service surflow-proposed-ira
-
-      - name: 'Redeploy service in Render'
-        run: render redeploy surflow-proposed-ira
+      - name: Deploy to Render
+        uses: JorgeLNJunior/render-deploy@v1.4.5
+        with:
+          service_id: ${{ secrets.RENDER_SERVICE_ID }}
+          api_key: ${{ secrets.RENDER_API_KEY }}
+          clear_cache: true
+          wait_deploy: true
+          github_deployment: true
+          deployment_environment: 'production'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
