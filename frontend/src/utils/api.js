@@ -4,7 +4,8 @@ import { getUserToken } from './localStorage';
 export const api = () => {
   const token = getUserToken();
   return axios.create({
-    baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3001',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    // baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3001',
     headers: {
       'Content-Type': 'application/json',
       authorization: `Bearer ${token}`,
