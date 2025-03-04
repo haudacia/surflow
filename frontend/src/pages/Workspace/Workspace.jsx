@@ -14,7 +14,7 @@ export const Workspace = withCustomFormProvider(() => {
   const navigate = useNavigate();
   const { forms, isLoading } = useForms();
   const queryClient = useQueryClient();
-  
+
   const handleCreate = (data) => {
     api()
       .post('/form', data)
@@ -32,7 +32,7 @@ export const Workspace = withCustomFormProvider(() => {
   return (
     <div className="flex flex-col min-h-screen min-w-screen bg-custom-gradient bg-cover">
       <UserNavbar isCreateMode={false} />
-      <div className="flex-grow ml-10 m-6 flex-col p-4 px-8 bg-white/30 rounded-2xl overflow-hidden">
+      <div className="flex-grow ml-10 m-6 flex-col p-4 px-8 bg-white/30 overflow-hidden">
         <div className=" h-full overflow-y-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {/* Botão na primeira célula da grid */}

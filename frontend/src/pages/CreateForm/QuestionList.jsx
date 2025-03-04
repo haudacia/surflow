@@ -53,7 +53,7 @@ export const QuestionList = () => {
   };
 
   return (
-    <div className='flex-grow flex flex-col md:w-2/5 w-full rounded-3xl shadow-md bg-white/30 p-10 pb-4 items-center justify-center'>
+    <div className='flex-grow flex flex-col md:w-2/5 w-full shadow-md bg-white/30 p-10 pb-4 items-center justify-center'>
       <div className='max-h-42 w-full mb-10'>
         <Select
           label='Question Type'

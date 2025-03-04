@@ -10,15 +10,15 @@ const QuestionForm = ({ autoSave }) => {
     const hasChoices = ['MultipleChoiceQuestion', 'SingleChoiceQuestion'].includes(type);
 
     return (
-        <main className='md:w-full h-full my-auto max-w-full rounded-3xl shadow-md bg-white/30 p-12 flex flex-col items-center justify-center'>
+        <main className='md:w-full h-full my-auto max-w-full shadow-md bg-white/30 p-12 flex flex-col items-center justify-center'>
             <TextareaAutoSize
-                className='w-full max-h-40 text-lg outline-none resize-none rounded-2xl p-2 bg-transparent hover:bg-white/30 border border-transparent focus:border-gray-900 transition duration-500'
+                className='w-full max-h-40 text-lg outline-none resize-none p-2 bg-transparent hover:bg-white/30 border border-transparent focus:border-gray-900 transition duration-500'
                 placeholder='your question here'
                 value={watch(`questions.${activeQuestion}.text`)}
                 {...register(`questions.${activeQuestion}.text`)}
             />
             <TextareaAutoSize
-                className='w-full max-h-40 text-sm outline-none resize-none rounded-2xl p-2 bg-transparent hover:bg-white/30 border border-transparent focus:border-gray-900 transition duration-500 mt-4'
+                className='w-full max-h-40 text-sm outline-none resize-none p-2 bg-transparent hover:bg-white/30 border border-transparent focus:border-gray-900 transition duration-500 mt-4'
                 placeholder='Description (optional)'
                 value={watch(`questions.${activeQuestion}.description`)}
                 {...register(`questions.${activeQuestion}.description`)}

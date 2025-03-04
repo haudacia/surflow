@@ -7,16 +7,16 @@ const Select = ({ options, onChange, value, label }) => {
     <Listbox value={value} onChange={onChange}>
       <Label className='text-sm'>{label}</Label>
       <div className='relative mt-2 '>
-        <ListboxButton className='relative w-full cursor-default rounded-2xl py-1.5 pl-3 pr-10 text-left shadow-sm ring-1 ring-gray-400 focus:outline-none focus:ring-neutral-900 sm:text-sm sm:leading-6'>
+        <ListboxButton className='relative w-full cursor-default py-1.5 pl-3 pr-10 text-left shadow-sm ring-1 ring-gray-400 focus:outline-none focus:ring-neutral-900 sm:text-sm sm:leading-6'>
           <span className='flex truncate items-center gap-2'>{value?.label}</span>
-          <span className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 rounded-2xl '>
+          <span className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 '>
             <HiChevronDown className='h-5 w-5' aria-hidden='true' />
           </span>
         </ListboxButton>
 
         <ListboxOptions
           transition
-          className='absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-2xl bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm'
+          className='absolute z-10 mt-1 max-h-60 w-full overflow-auto bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm'
         >
           {options.map((option) => (
             <ListboxOption

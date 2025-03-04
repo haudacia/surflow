@@ -52,7 +52,7 @@ const UpdateUserName = () => {
             <SmallButton text='Change Username' className='w-[250px]' onClick={() => setIsOpen(true)} />
             <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-                    <DialogPanel className="max-w-lg space-y-4 border rounded-3xl bg-azure p-8">
+                    <DialogPanel className="max-w-lg space-y-4 border bg-azure p-8">
                         <DialogTitle className="font-bold text-2xl">Change Username</DialogTitle>
                         {error && <p className="text-red-500">{error}</p>}
                         <input
