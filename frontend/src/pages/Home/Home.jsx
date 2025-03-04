@@ -17,7 +17,7 @@ const Home = () => {
           </h1>
           <Link to={token ? '/workspace' : '/login'}>
             <button
-              className='w-80 text-gray-900 h-fit shadow-md bg-azure hover:bg-white
+              className='w-80 text-gray-900 h-fit shadow-md bg- hover:bg-white
               hover:shadow-none hover:border hover:border-gray-600 transition-all
               duration-300  scale-150'
             >

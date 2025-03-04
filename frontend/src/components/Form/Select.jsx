@@ -21,7 +21,7 @@ const Select = ({ options, onChange, value, label }) => {
           {options.map((option) => (
             <ListboxOption
               key={option.value}
-              className='text-gray-900 relative cursor-default select-none py-1 pl-3 pr-9 focus:bg-neutral-600 focus:text-white hover:bg-azure transition-all
+              className='text-gray-900 relative cursor-default select-none py-1 pl-3 pr-9 focus:bg-neutral-600 focus:text-white hover:bg- transition-all
               duration-500'
               // className={({ focus }) =>
               //   classNames(
