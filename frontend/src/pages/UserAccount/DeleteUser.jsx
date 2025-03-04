@@ -12,7 +12,7 @@ const DeleteUser = () => {
     let [isOpen, setIsOpen] = useState(false);
     let [isDeleted, setIsDeleted] = useState(false);
     const navigate = useNavigate();
-
+    console.log(isOpen)
     const handleConfirmDelete = async (userId) => {
         try {
             await handleDeleteUser(id);

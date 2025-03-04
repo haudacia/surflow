@@ -23,7 +23,7 @@ const UserNavbar = ({ isCreateMode, showProfileIcon = true }) => {
     };
 
     return (
-        <div className='flex items-center min-w-screen pb-2 px-20 pt-10 border-gray-800 bg-white/30 justify-between top-0'>
+        <div className='absolute flex items-center min-w-screen pb-2 px-20 pt-10 border-gray-800 bg-white/30 justify-between top-0'>
             <UsernamesWorkspace />
             <div className={'flex align-right items-center justify-evenly gap-6'}>
                 <UserGreeting />

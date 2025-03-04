@@ -13,19 +13,17 @@ const UserAccount = () => {
     const { userId, userEmail } = useUserProvider();
 
     return (
-        <div className={'bg-custom-gradient bg-cover h-screen w-screen justify-center'}>
+        <div className='h-screen w-screen bg-custom-gradient bg-cover flex items-center justify-center'>
             <UserNavbar showProfileIcon={true} />
-            <div className={'flex flex-col items-center gap-6 mt-8'}>
-                <p className='text-2xl'>{userEmail}</p>
-                {/* <SmallButton text='Change Username' className='w-[250px]' onClick={() => console.log('should allow user to change username')} /> */}
+            <div className={'flex flex-col items-center gap-4'}>
+                <p>{userEmail}</p>
                 <FileInput />
                 <DeleteUser />
 
-                <div>
-                    {/* <ProfileIcon /> */}
-                </div>
             </div>
+
         </div>
+
     );
 };
 
