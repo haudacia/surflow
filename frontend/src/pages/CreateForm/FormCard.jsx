@@ -23,7 +23,7 @@ const FormCard = ({ form }) => {
 
   return (
     <div
-      className='group flex h-fit p-4 bg-c1 border-black border-[1px] shadow- cursor-pointer hover:bg-onHoverColor transition-all duration-300 hover:bg-onHoverColor shadow-crisp'
+      className='group flex h-fit p-4 border-black border-[1px] shadow- cursor-pointer hover:bg-c2 transition-all duration-300 hover:bg-c2 shadow-crisp'
       onClick={() => navigate(`/createform/${form._id}`)}
       style={{ aspectRatio: '1' }}
     >

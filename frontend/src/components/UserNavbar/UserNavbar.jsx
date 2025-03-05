@@ -9,7 +9,7 @@ import { useState } from 'react';
 import SmallButton from '../Buttons/SmallButton';
 import { handleDeleteForm } from '../../utils/api';
 
-const UserNavbar = ({ isCreateMode = false, children, ...rest }) => {
+const UserNavbar = ({ isCreateMode = false, isWorkspace = false, children, ...rest }) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +21,7 @@ const UserNavbar = ({ isCreateMode = false, children, ...rest }) => {
     };
 
     return (
-        <div className='flex items-center px-28 border-solid border-black border-b-[1px] justify-between' {...rest}>
+        <div className='flex items-center px-28 bg-white/30 border-solid border-black border-b-[1px] justify-between' {...rest}>
             {isCreateMode ? (
                 <div className={'flex items-center w-full'}>
                     <ProfileIcon accountSettingsId='accountSettings' profileIconId='profileIcon' />
@@ -43,7 +43,7 @@ const UserNavbar = ({ isCreateMode = false, children, ...rest }) => {
                         textOnConfirm='Yes'
                     />
                 </div>
-            ) : (
+            ) : isWorkspace ? (
                 <div className={'flex items-center w-full'}>
                     <div className={'flex items-center'}>
                         <ProfileIcon accountSettingsId='accountSettings' profileIconId='profileIcon' />
@@ -54,6 +54,16 @@ const UserNavbar = ({ isCreateMode = false, children, ...rest }) => {
                     </div>
                 </div>
 
+            ) : (
+                <div className={'flex items-center w-full'}>
+                    <div className={'flex items-center'}>
+                        <ProfileIcon accountSettingsId='accountSettings' profileIconId='profileIcon' />
+                        <UsernamesWorkspace />
+                    </div>
+                    <div className="flex">
+                        {children}
+                    </div>
+                </div>
             )
             }
         </div>

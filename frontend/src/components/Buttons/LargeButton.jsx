@@ -5,7 +5,7 @@ const LargeButton = ({ text, id }) => {
     <>
       <button
         id={id}
-        className="w-80 h-20 text-gray-900 shadow-md bg- hover:bg-white/50 
+        className="w-80 h-20 text-gray-900 shadow-md bg- hover:bg-c2/50 
         hover:shadow-none hover:border hover:border-gray-600 transition-all
         duration-400">
         {text}

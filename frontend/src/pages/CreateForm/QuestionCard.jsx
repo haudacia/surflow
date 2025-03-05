@@ -18,7 +18,7 @@ const QuestionCard = ({ question, index, onDragStart, onDragOver, onDrop }) => {
       <li
         className={classNames(
           'flex border-[1px] border-b-black h-12 w-full items-center pl-4 gap-4 text-sm',
-          isSelected ? 'bg-onHoverColor' : '',
+          isSelected ? 'bg-c2' : '',
         )}
         draggable
         onDragStart={onDragStart}

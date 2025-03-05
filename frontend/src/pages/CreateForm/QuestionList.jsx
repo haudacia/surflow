@@ -67,7 +67,7 @@ export const QuestionList = () => {
           {questions.map((question, index) => (
             <QuestionCard
               question={question}
-              key={question.id}
+              key={question._id}
               index={index}
               onDragStart={(e) => handleDragStart(e, index)}
               onDrop={(e) => handleOnDrop(e, index)}

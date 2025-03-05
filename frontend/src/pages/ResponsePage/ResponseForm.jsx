@@ -72,7 +72,7 @@ const ResponseForm = () => {
   if (!formData) return <div>Loading...</div>;
 
   return (
-    <div className='flex flex-col items-center px- justify-center h-screen bg-custom-gradient'>
+    <div className='flex flex-col items-center px- justify-center h-screen bg-c1'>
       <h1 className='absolute top-6'>{formData.title}</h1>
       <div className='w-full flex flex-col h-3/5 items-center border-black overflow-hidden'>
         <RoundButton onClick={prevQuestion}>

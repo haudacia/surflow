@@ -13,10 +13,10 @@ module.exports = {
       },
       backgroundImage: {
         // 'dotted_pattern': 'url(./assets/grainy.svg)',
-        // 'custom-gradient-2': '#ff0000',
-        'custom-gradient': 'linear-gradient(45deg, rgba(226, 222, 243,1) 0%, rgb(171, 139, 186) 100%)',
+        // 'c1-2': '#ff0000',
+        // 'c1': 'linear-gradient(45deg, rgb(194, 183, 200) 100%, rgb(194, 183, 200) 100%)',
         'blurry': 'url(/blurry.svg)'
-        // 'custom-gradient': 'linear-gradient(45deg, rgba(168,165,200,1) 0%, rgba(192,192,230,1) 43%, rgb(227, 230, 227) 100%)',
+        // 'c1': 'linear-gradient(45deg, rgba(168,165,200,1) 0%, rgba(192,192,230,1) 43%, rgb(227, 230, 227) 100%)',
       },
       backgroundSize: {
         'dotted_pattern': '300px 300px',
@@ -29,9 +29,8 @@ module.exports = {
         'dotted_pattern': 'center',
       },
       colors: {
-        c1: 'rgb(192,192, 230)',
-        onHoverColor: 'hsl(87, 83.50%, 73.90%)',
-        c2: 'rgb(80, 80, 80)',
+        c1: 'rgb(214, 201, 221)',
+        c2: 'rgb(204, 239, 254)',
         'base-color': 'rgb(234, 207, 207)',
         'highlight-1': 'rgb(0, 84, 28)',
         'highlight-2': 'rgb(0, 255, 255)',

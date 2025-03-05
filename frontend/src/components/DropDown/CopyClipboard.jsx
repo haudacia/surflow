@@ -12,10 +12,10 @@ const CopyClipboard = ({ formId }) => {
   }, [formId]);
 
   return (
-    <div className='flex flex-row border-2 z-50 items-center w-full'>
+    <div className='flex flex-row border-[1px] border-black z-50 items-center w-full'>
       <p className='p-2 overflow-hidden overflow-ellipsis whitespace-nowrap flex-grow'>{textToCopy}</p>
       <CopyToClipboard text={textToCopy}>
-        <SmallButton text='Copy' className='text-md' />
+        <SmallButton text='Copy' className='mr-1' />
       </CopyToClipboard>
     </div>
   );

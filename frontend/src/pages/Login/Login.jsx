@@ -34,7 +34,7 @@ const Login = () => {
   } = useForm({ mode: onSubmit });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-custom-gradient">
+    <div className="flex items-center justify-center min-h-screen bg-c1">
       <div className="bg-white/20 p-16 w-full max-w-md flex flex-col items-center">
         <div className='mb-10'>
           <img style={{ width: 250 }} src='/Surflow logo@2x.png' alt='Surflow Logo' />

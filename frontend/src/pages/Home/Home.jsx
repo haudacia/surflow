@@ -6,7 +6,7 @@ const Home = () => {
   const token = getUserToken();
 
   return (
-    <div className='bg-custom-gradient min-h-screen flex items-center justify-center p-2'>
+    <div className='bg-c1 min-h-screen flex items-center justify-center p-2'>
       <div className='bg-white/50 p-8 shadow-md flex flex-col items-center w-full h-[90vh] mx-4'>
         <div className='flex flex-col items-center justify-center h-full'>
           <div className='mb-36'>
@@ -17,7 +17,7 @@ const Home = () => {
           </h1>
           <Link to={token ? '/workspace' : '/login'}>
             <button
-              className='w-80 text-gray-900 h-fit shadow-md bg- hover:bg-white
+              className='w-80 text-gray-900 h-fit shadow-md bg- hover:bg-c2
               hover:shadow-none hover:border hover:border-gray-600 transition-all
               duration-300  scale-150'
             >

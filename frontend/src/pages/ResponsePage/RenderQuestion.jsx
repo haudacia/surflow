@@ -37,9 +37,9 @@ const RenderQuestion = ({ question, index, register }) => {
                 />
                 <div className='w-6 h-6 border-2 border-gray-500 rounded-full flex items-center justify-center peer-checked:border-black peer-checked:bg-black transition-all'>
                   {question.type === 'MultipleChoiceQuestion' ? (
-                    <div className='w-3 h-3 bg-white rounded-full'></div>
+                    <div className='w-3 h-3 bg-c1 rounded-full'></div>
                   ) : (
-                    <div className='w-3 h-3 bg-white rounded-full scale-0 peer-checked:scale-100 transition-all'></div>
+                    <div className='w-3 h-3 bg-c1 rounded-full scale-0 peer-checked:scale-100 transition-all'></div>
                   )}
                 </div>
                 {option.label}
@@ -58,7 +58,7 @@ const RenderQuestion = ({ question, index, register }) => {
               <label
                 key={`${question._id}-${value}`}
                 htmlFor={`${question._id}-${value}`}
-                className='flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-white/30 transition-all text-lg font-medium'
+                className='flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-c2/30 transition-all text-lg font-medium'
               >
                 <input
                   type='radio'

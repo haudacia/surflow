@@ -31,8 +31,8 @@ export const Workspace = withCustomFormProvider(() => {
   };
 
   return (
-    <div className="grid grid-rows-[12%_88%] h-screen min-w-screen bg-custom-gradient bg-cover">
-      <UserNavbar isCreateMode={false}>
+    <div className="grid grid-rows-[12%_88%] h-screen min-w-screen bg-c1 bg-cover">
+      <UserNavbar isCreateMode={false} isWorkspace={true}>
         <SmallButton
           onClick={handleSubmit(handleCreate)}
           text='new form'

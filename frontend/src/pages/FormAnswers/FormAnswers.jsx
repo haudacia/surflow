@@ -43,7 +43,7 @@ const FormAnswers = ({ ...rest }) => {
   );
 
   return (
-    <div className="grid grid-rows-[12%_88%] grid-cols-1 h-dvh w-screen bg-custom-gradient">
+    <div className="grid grid-rows-[12%_88%] grid-cols-1 h-dvh w-screen bg-c1">
       <UserNavbar>
         <h2 className='px-4'>
           /
@@ -62,9 +62,9 @@ const FormAnswers = ({ ...rest }) => {
         <table className="w-full border-spacing-0 border-black border-[1px] border-t-0">
           <thead>
             <tr className="text-left">
-              <th className="border-b border-black bg-gray-200 px-4 py-2">DATE</th>
+              <th className="border-b border-black bg-white/20 px-4 py-2">DATE</th>
               {currentForm?.questions.map((question, index) => (
-                <th key={index} className="border-b border-l border-black bg-gray-200 py-4">
+                <th key={index} className="border-b border-l border-black bg-white/20 py-4">
                   <div className="flex items-center gap-4 pl-4">
                     {questionType(question)?.icon}
                     {question.text}
@@ -91,7 +91,7 @@ const FormAnswers = ({ ...rest }) => {
               ))
             ) : (
               <tr>
-                <td colSpan={currentForm?.questions.length + 1} className="border-black py-2 text-center">No answers to display</td>
+                <td colSpan={currentForm?.questions.length + 1} className="border-black py-4 text-center">No answers to display</td>
               </tr>
             )}
           </tbody>

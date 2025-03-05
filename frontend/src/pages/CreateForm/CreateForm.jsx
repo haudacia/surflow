@@ -67,7 +67,7 @@ export const CreateForm = withCustomFormProvider(() => {
   });
 
   return (
-    <div className='grid grid-rows-[12%_88%] grid-cols-1 h-dvh w-screen bg-custom-gradient bg-cover'>
+    <div className='grid grid-rows-[12%_88%] grid-cols-1 h-dvh w-screen bg-c1 bg-cover'>
       <UserNavbar isCreateMode={true}>
         <Input
           type='text'
@@ -76,13 +76,18 @@ export const CreateForm = withCustomFormProvider(() => {
           {...register('title')}
           onBlur={handleSubmit(onSubmit)}
         />
-        <SmallButton
-          text='SAVE'
-          className='mr-2 text-sm bg-gray-800 text-white hover:text-black shadow-vaporwave'
-        />
+
       </UserNavbar>
       {!isLoading && (
         <form className='row-span-2 grid grid-cols-2 px-0 md:pb- ' onSubmit={handleSubmit(onSubmit)}>
+          <div className="fixed inset-0 flex items-top justify-end px-[361px] z-50">
+            <SmallButton
+              text="SAVE"
+              className=" bg-gray-800 text-white hover:text-black shadow-crisp m-[33px] ml-50"
+            />
+          </div>
+
+
           <div className='row-span-2 col-span-1 overflow-y-scroll'>
             <QuestionList autoSave={handleSubmit(onSubmit)} />
           </div>

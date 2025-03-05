@@ -11,7 +11,7 @@ const ShareButton = ({ formId, inDropdown = false, className }) => {
         <button
           type='button'
           onClick={() => setShowModal(true)}
-          className='block w-full px-4 py-1 hover:bg-onHoverColor text-left'
+          className='block w-full px-4 py-1 hover:bg-c2 text-left'
         >
           Publish
         </button>
@@ -28,10 +28,10 @@ const ShareButton = ({ formId, inDropdown = false, className }) => {
       {showModal && (
         <>
           <div className='fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none'>
-            <div className='relative w-auto mx-auto my-6 max-w-2xl'>
-              <div className='relative flex flex-col w-full bg-white shadow-lg outline-none focus:outline-none'>
-                <div className='flex items-start justify-between p-5 border-b border-solid border-gray-200'>
-                  <h3 className='text-lg font-semibold'>Share form</h3>
+            <div className='relative w-2/3 mx-auto my-6'>
+              <div className='relative flex flex-col w-full bg-c1  shadow-lg outline-none focus:outline-none'>
+                <div className='flex items-start justify-between p-5'>
+                  <h2 className='text-lg'>Share your form and start collecting answers</h2>
                   <button
                     className='p-1 ml-auto text-black bg-transparent border-0 float-right text-3xl leading-none font-semibold outline-none focus:outline-none'
                     onClick={() => setShowModal(false)}
@@ -47,7 +47,7 @@ const ShareButton = ({ formId, inDropdown = false, className }) => {
               </div>
             </div>
           </div>
-          <div className='fixed inset-0 z-40 bg-black opacity-25'></div>
+          <div className='fixed inset-0 z-40 bg-black opacity-40'></div>
         </>
       )}
     </>
