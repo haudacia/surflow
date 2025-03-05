@@ -7,7 +7,7 @@ const AnswerCard = ({ answer }) => {
     );
 
     return (
-        <div className={'w-full text-sm'}>
+        <div className={'h-fit text-sm'}>
             <p>{answer.answer}</p>
         </div>
     );

@@ -20,6 +20,7 @@ module.exports = {
       },
       backgroundSize: {
         'dotted_pattern': '300px 300px',
+        'blurry': 'cover'
       },
       backgroundRepeat: {
         'dotted_pattern': 'repeat',
@@ -28,7 +29,7 @@ module.exports = {
         'dotted_pattern': 'center',
       },
       colors: {
-        azure: 'rgb(192,192, 230)',
+        c1: 'rgb(192,192, 230)',
         onHoverColor: 'hsl(87, 83.50%, 73.90%)',
         c2: 'rgb(80, 80, 80)',
         'base-color': 'rgb(234, 207, 207)',
@@ -44,6 +45,7 @@ module.exports = {
       boxShadow: {
         'glow': '0 0 10px 5px rgba(255, 255, 255, 0.6)',
         'vaporwave': '5px 5px 6px rgba(255, 0, 255, 0.6), -5px -5px 6px rgba(0, 255, 255, 0.6)',
+        'crisp': '-5px 5px 0px rgba(0, 0, 0, 1)'
       },
       spacing: {
         'base': '2rem',

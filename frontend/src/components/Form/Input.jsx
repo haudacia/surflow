@@ -12,7 +12,7 @@ const Input = forwardRef(({ error, label, type = 'text', onBlur, className, ...r
       <input
         type={type}
         className={classNames(
-          'w-full resize-none px-2 bg-transparent hover:bg-white/50 outline-none transition duration-500',
+          'w-full resize-none bg-transparent hover:bg-white/50 outline-none transition duration-500',
           className
         )}
         ref={ref}

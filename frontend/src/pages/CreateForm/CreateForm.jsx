@@ -67,23 +67,23 @@ export const CreateForm = withCustomFormProvider(() => {
   });
 
   return (
-    <div className='grid grid-rows-[15%_85%] grid-cols-1 h-dvh w-screen bg- bg-cover'>
+    <div className='grid grid-rows-[12%_88%] grid-cols-1 h-dvh w-screen bg-custom-gradient bg-cover'>
       <UserNavbar isCreateMode={true}>
         <Input
           type='text'
           placeholder='Form name'
-          className='text-2xl px-6 placeholder-c2'
+          className='text-lg'
           {...register('title')}
           onBlur={handleSubmit(onSubmit)}
         />
         <SmallButton
           text='SAVE'
-          className='mr-8 bg-gray-800 text-white hover:text-black shadow-vaporwave'
+          className='mr-2 text-sm bg-gray-800 text-white hover:text-black shadow-vaporwave'
         />
       </UserNavbar>
       {!isLoading && (
         <form className='row-span-2 grid grid-cols-2 px-0 md:pb- ' onSubmit={handleSubmit(onSubmit)}>
-          <div className='row-span-2 col-span-1 overflow-y-scroll '>
+          <div className='row-span-2 col-span-1 overflow-y-scroll'>
             <QuestionList autoSave={handleSubmit(onSubmit)} />
           </div>
           <div className='row-span-2'>

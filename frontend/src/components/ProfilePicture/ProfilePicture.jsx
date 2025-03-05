@@ -15,7 +15,7 @@ export const ProfilePicture = ({ imageUrl, isIcon, ...rest }) => {
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center" {...rest}>
-          <span className="text-xl">{userInitials}</span>
+          <span className="text-lg">{userInitials}</span>
         </div >
       )}
     </div >

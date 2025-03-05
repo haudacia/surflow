@@ -11,7 +11,7 @@ const ShareButton = ({ formId, inDropdown = false, className }) => {
         <button
           type='button'
           onClick={() => setShowModal(true)}
-          className='block w-full px-4 py-1 text-sm text-gray-700 hover:bg-onHoverColor text-left'
+          className='block w-full px-4 py-1 hover:bg-onHoverColor text-left'
         >
           Publish
         </button>
@@ -31,7 +31,7 @@ const ShareButton = ({ formId, inDropdown = false, className }) => {
             <div className='relative w-auto mx-auto my-6 max-w-2xl'>
               <div className='relative flex flex-col w-full bg-white shadow-lg outline-none focus:outline-none'>
                 <div className='flex items-start justify-between p-5 border-b border-solid border-gray-200'>
-                  <h3 className='text-xl font-semibold'>Share form</h3>
+                  <h3 className='text-lg font-semibold'>Share form</h3>
                   <button
                     className='p-1 ml-auto text-black bg-transparent border-0 float-right text-3xl leading-none font-semibold outline-none focus:outline-none'
                     onClick={() => setShowModal(false)}

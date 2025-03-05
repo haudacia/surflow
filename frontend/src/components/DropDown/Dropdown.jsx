@@ -27,7 +27,7 @@ const Dropdown = ({ form, handleDelete }) => {
       <div>
         <button
           type='button'
-          className='inline-flex justify-center w-full text-xl border-[1px] border-black hover:shadow-vaporwave spy-1 text-black hover:bg-white/50 focus:outline-none transition-shadow duration-800'
+          className='inline-flex bg-white rounded-full justify-center self-center text-lg border-[1px] border-black hover:shadow-vaporwave spy-1 text-black hover:bg-white/50 focus:outline-none transition-shadow duration-800'
           id='options-menu'
           aria-haspopup='true'
           aria-expanded={isOpen}
@@ -62,13 +62,13 @@ const Dropdown = ({ form, handleDelete }) => {
                 navigate(`/formAnswers?form=${form._id}`);
                 setIsOpen(false);
               }}
-              className='block w-full px-4 py-1 text-sm text-gray-700 hover:bg-onHoverColor text-left border-t border-black'
+              className='block w-full px-4 py-1 hover:bg-onHoverColor text-left border-t border-black'
             >
               Results
             </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className='block w-full px-4 py-1 text-sm text-gray-700 hover:bg-onHoverColor text-left border-t border-black'
+              className='block w-full px-4 py-1 hover:bg-onHoverColor text-left border-t border-black'
             >
               Delete
             </button>

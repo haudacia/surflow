@@ -52,7 +52,7 @@ export const QuestionList = () => {
   };
 
   return (
-    <div className='mx-32 pt-24 min-w-48'>
+    <div className='h-full w-full p-28 border-l-black border-l my-auto flex flex-col justify-center'>
       <SmallButton type='button' text='+ Add question' onClick={handleAddQuestion} className='w-full mb-6' />
 
       <Select
