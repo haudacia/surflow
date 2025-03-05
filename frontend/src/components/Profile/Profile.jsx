@@ -24,7 +24,7 @@ const ProfileIcon = ({ accountSettingsId, profileIconId }) => {
 
   return (
     <div className="flex items-center dropdown dropdown-end scale-100">
-      <div tabIndex={0} role="button" className="btn-circle outline-none hover:outline-offset-0 hover:outline-azure avatar">
+      <div tabIndex={0} role="button" className="h-10 outline-none hover:outline-offset-0 rounded-full hover:outline-onHoverColor avatar">
         <ProfilePicture imageUrl={user?.profilePicture} isIcon={true} />
       </div>
       <ul tabIndex={0} className="mt-36 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white/90 w-fit">

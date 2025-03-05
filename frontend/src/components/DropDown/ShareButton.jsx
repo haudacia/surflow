@@ -11,7 +11,7 @@ const ShareButton = ({ formId, inDropdown = false, className }) => {
         <button
           type='button'
           onClick={() => setShowModal(true)}
-          className={'font-semibold block w-full px-4 py-2 text-sm text-gray-700 hover:bg- text-left'}
+          className='block w-full px-4 py-1 text-sm text-gray-700 hover:bg-onHoverColor text-left'
         >
           Publish
         </button>

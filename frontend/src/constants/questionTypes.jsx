@@ -6,7 +6,7 @@ import React from 'react';
 
 const SquaredIcon = ({ icon, color, number }) => {
   return (
-    <span className={`rounded p-1 ${color} text-black flex items-center gap-3 text-sm w-fit`}>
+    <span className={`p-2 ${color} text-black flex items-center gap-4 min-w-16 h-full text-sm`}>
       {icon}
       {number}
     </span>
@@ -16,22 +16,22 @@ const SquaredIcon = ({ icon, color, number }) => {
 export const questionTypes = [
   {
     value: 'TextQuestion',
-    label: 'Simple Question',
-    icon: <SquaredIcon icon={<MdShortText size={20} />} color='bg-green-200' />,
+    label: 'Simple Text Question',
+    icon: <SquaredIcon icon={<MdShortText size={25} />} color='bg-cyan-' />,
   },
   {
     value: 'MultipleChoiceQuestion',
     label: 'Multiple Choice Question',
-    icon: <SquaredIcon icon={<TbListLetters size={20} />} color='bg-yellow-100' />,
+    icon: <SquaredIcon icon={<TbListLetters size={25} />} color='bg-yellow-' />,
   },
   {
     value: 'SingleChoiceQuestion',
     label: 'Single Choice Question',
-    icon: <SquaredIcon icon={<RiListCheck3 size={20} />} color='bg-purple-200' />,
+    icon: <SquaredIcon icon={<RiListCheck3 size={25} />} color='bg-green-' />,
   },
   {
     value: 'YesNoQuestion',
     label: 'Yes/No Question',
-    icon: <SquaredIcon icon={<LuCircleSlash2 size={20} />} color='bg-orange-200' />,
+    icon: <SquaredIcon icon={<LuCircleSlash2 size={25} />} color='bg-fuchsia-' />,
   },
 ];

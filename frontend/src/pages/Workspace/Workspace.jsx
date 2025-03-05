@@ -30,27 +30,23 @@ export const Workspace = withCustomFormProvider(() => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen min-w-screen bg-custom-gradient bg-cover">
+    <div className="grid grid-cols-[33%_33%_33%] grid-rows-4 h-screen min-w-screen bg-blurry bg-cover">
       <UserNavbar isCreateMode={false} />
-      <div className="flex-grow ml-10 m-6 flex-col p-4 px-8 bg-white/30 overflow-hidden">
-        <div className=" h-full overflow-y-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {/* Botão na primeira célula da grid */}
-            <div className="col-span-1 sm:col-span-1 lg:col-span-2 xl:col-span-3">
-              <MediumButton text="Create new form" onClick={handleSubmit(handleCreate)} />
-            </div>
-            <div className="col-span-1"></div>
-            {isLoading ? (
-              <p>Loading forms...</p>
-            ) : forms && forms.length > 0 ? (
-              forms.map((form) => <FormCard key={form._id} form={form} />)
-            ) : (
-              <p>{emptyWorkspaceMessage}</p>
-            )}
-          </div>
-        </div>
+      <button className='row-start-1 row-end-1 col-start-2 w-full hover:bg-onHoverColor border-b-[1px] border-black py-2 text-xl align-center' onClick={handleSubmit(handleCreate)}>
+        create new form
+      </button>
+
+      <div className="row-span-4 h-full overflow-y-scroll border-l-black border-l-[1px]">
+        {isLoading ? (
+          <p>Loading forms...</p>
+        ) : forms && forms.length > 0 ? (
+          forms.map((form) => <FormCard key={form._id} form={form} />)
+        ) : (
+          <p>{emptyWorkspaceMessage}</p>
+        )}
       </div>
-    </div>
+
+    </div >
   );
 });
 

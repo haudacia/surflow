@@ -32,28 +32,28 @@ const QuestionChoices = ({ autoSave }) => {
 
   return (
     <>
-      <div className='overflow-y-auto p-10 self-center'>
+      <div className='flex flex-col gap-2 p-2 overflow-y-auto'>
 
         {choices?.map((choice, index) => (
           <div className='relative' key={choice.id}>
             <div
               key={index}
               className={classNames(
-                `border px-2 py-1 rounded-lg flex items-center`,
-                isSingleChoice ? 'bg-purple-100' : 'bg-yellow-100',
+                `w-full border border-[1px] border-black flex items-center`,
+                isSingleChoice ? 'bg-purple-200' : 'bg-yellow-200',
               )}
             >
               <span
                 className={classNames(
-                  `rounded-lg w-6 h-6 flex items-center justify-center`,
-                  isSingleChoice ? 'bg-purple-200' : 'bg-yellow-200',
+                  `w-1/12 h-full flex items-center justify-center`,
+                  isSingleChoice ? 'bg-purple-300' : 'bg-yellow-300',
                 )}
               >
                 {toLetterAbbr(index + 1)}
               </span>
               <input
                 type='text'
-                className='outline-none bg-transparent pl-2 z-1'
+                className='outline-none bg-transparent w-full px-4 z-1'
                 placeholder={`Choice ${toLetterAbbr(index + 1)}`}
                 value={choice.label}
                 {...register(`questions.${activeQuestion}.choices.${index}.label`)}

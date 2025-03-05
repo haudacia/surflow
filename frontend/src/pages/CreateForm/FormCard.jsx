@@ -23,14 +23,11 @@ const FormCard = ({ form }) => {
 
   return (
     <div
-      className='relative h-32 text-sm flex flex-col justify-center flex-wrap p-4 shadow-sm bg- hover:shadow-none transition-all duration-500 hover:bg-white'
+      className='relative h-1/4 w-full justify-between items-end cursor-pointer border-b-[1px] border-black text-xl flex justify-center flex-wrap p-2 shadow-black bg- hover:bg-onHoverColor transition-all duration-500 hover:bg-onHoverColor'
       onClick={() => navigate(`/createform/${form._id}`)}
     >
-      <div className='absolute top-2 right-2'>
-        <Dropdown form={form} handleDelete={handleDelete} />
-      </div>
-      <p className='mt-6 overflow-auto'>{form.title}</p>
-      <div className='flex flex-row relative top-3 right-'></div>
+      <p className='overflow-auto w-3/4'>{form.title}</p>
+      <Dropdown form={form} handleDelete={handleDelete} />
     </div>
   );
 };

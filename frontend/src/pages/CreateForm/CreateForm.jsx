@@ -12,12 +12,13 @@ import { useFormState } from 'react-hook-form';
 import ConfirmationModal from '../../components/Modal/ConfirmationModal.jsx';
 import SmallButton from '../../components/Buttons/SmallButton.jsx';
 import Input from '../../components/Form/Input.jsx';
+import FormAnswers from '../FormAnswers/FormAnswers.jsx';
 
 export const CreateForm = withCustomFormProvider(() => {
   const { id } = useParams();
   const { forms, isLoading } = useForms();
   const queryClient = useQueryClient();
-  const { handleSubmit, setValue, activeQuestion, watch, control, reset, fillEmptyChoiceLabels, activeIndex, register } = useCustomFormProvider();
+  const { handleSubmit, setValue, getValues, activeQuestion, watch, control, reset, fillEmptyChoiceLabels, activeIndex, register } = useCustomFormProvider();
   const { dirtyFields, isDirty } = useFormState({ control, });
 
   const choices = watch(`questions.${activeQuestion}.choices`);
@@ -28,7 +29,6 @@ export const CreateForm = withCustomFormProvider(() => {
 
   const currentForm = forms?.find((form) => form._id === id);
   const isEditMode = !!id && currentForm;
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (currentForm) {
@@ -47,6 +47,10 @@ export const CreateForm = withCustomFormProvider(() => {
   }, [isEditMode, currentForm, setValue]);
 
   const onSubmit = async (data) => {
+    if (!data.title) {
+      setValue('title', 'my form');
+      data.title = 'my form'
+    }
     data = fillEmptyChoiceLabels();
     const res = await api().patch(`/form/${id}`, data);
     reset(data);
@@ -63,21 +67,29 @@ export const CreateForm = withCustomFormProvider(() => {
   });
 
   return (
-    <div className='flex flex-col gap-4 h-dvh w-screen bg-custom-gradient bg-cover md:bg-cover overflow-y-auto md:overflow-hidden'>
-      <UserNavbar isCreateMode={true} />
-      <Input type='text' placeholder='Form name' className='text-lg px-20' {...register('title')} onBlur={handleSubmit(onSubmit)} />
+    <div className='grid grid-rows-[15%_85%] grid-cols-1 h-dvh w-screen bg- bg-cover'>
+      <UserNavbar isCreateMode={true}>
+        <Input
+          type='text'
+          placeholder='Form name'
+          className='text-2xl px-6 placeholder-c2'
+          {...register('title')}
+          onBlur={handleSubmit(onSubmit)}
+        />
+        <SmallButton
+          text='SAVE'
+          className='mr-8 bg-gray-800 text-white hover:text-black shadow-vaporwave'
+        />
+      </UserNavbar>
       {!isLoading && (
-        <form className='flex flex-col md:flex justify-between flex-grow md:pb-20 lg:py-4 h-1 overflow-y-auto md:overflow-hidden' onSubmit={handleSubmit(onSubmit)}>
-          <div className='md:flex-row md:h-full gap-4 flex flex-col md:gap-12 pb-14 justify-between mx-20 flex-grow'>
-            {/* <QuestionOptions autoSave={handleSubmit(onSubmit)} /> */}
+        <form className='row-span-2 grid grid-cols-2 px-0 md:pb- ' onSubmit={handleSubmit(onSubmit)}>
+          <div className='row-span-2 col-span-1 overflow-y-scroll '>
             <QuestionList autoSave={handleSubmit(onSubmit)} />
+          </div>
+          <div className='row-span-2'>
             <QuestionForm autoSave={handleSubmit(onSubmit)} />
           </div>
-          <SmallButton text='SAVE' className='lg:w-1/5 w-full h-[40px] bg-transparent border-black border fixed bottom-0 right-0 lg:bottom-4 lg:right-20' />
 
-          {/* <footer className='fixed bottom-0 left-0 w-full flex justify-end px-4 py-4'>
-            <SmallButton text='SAVE' className='w-full md:w-64 h-[64px] m-10 mb-6' />
-          </footer> */}
           <ConfirmationModal
             open={blocker.state === 'blocked'}
             onClose={() => blocker.reset()}
