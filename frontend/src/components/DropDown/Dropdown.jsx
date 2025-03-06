@@ -27,7 +27,7 @@ const Dropdown = ({ form, handleDelete }) => {
       <div>
         <button
           type='button'
-          className='inline-flex justify-center w-full rounded-md border bg-azure/80 shadow-sm px-2 py-1 text-black hover:bg-white/50 focus:outline-none focus:ring-neutral-500'
+          className='inline-flex bg-c1 rounded-full justify-center self-center text-lg border-[1px] border-black hover:shadow-crisp spy-1 text-black hover:bg-c2/50 focus:outline-none transition-shadow duration-800'
           id='options-menu'
           aria-haspopup='true'
           aria-expanded={isOpen}
@@ -38,9 +38,9 @@ const Dropdown = ({ form, handleDelete }) => {
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
-            strokeWidth={1.5}
+            strokeWidth={1.4}
             stroke='currentColor'
-            className='size-4'
+            className='size-6'
           >
             <path
               strokeLinecap='round'
@@ -53,22 +53,22 @@ const Dropdown = ({ form, handleDelete }) => {
       {isOpen && (
         <div
           onClick={handleMenuClick}
-          className='origin-top-right absolute right-0 mt-2 w-56 rounded-xl shadow-lg bg-white focus:outline-none z-10'
+          className='absolute right-0 mt-0 w-fit bg-c1 focus:outline-none z-10 border-black border-[1px] grid'
         >
-          <div className='py-1' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
+          <div role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
             <ShareButton formId={form._id} inDropdown={true} />
             <button
               onClick={() => {
                 navigate(`/formAnswers?form=${form._id}`);
                 setIsOpen(false);
               }}
-              className='font-semibold w-full px-4 py-2 text-sm text-gray-700 hover:bg-azure text-left'
+              className='block w-full px-4 py-1 hover:bg-c2 text-left border-t border-black'
             >
               Results
             </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className='font-semibold block px-4 py-2 text-sm text-gray-700 hover:bg-azure w-full text-left'
+              className='block w-full px-4 py-1 hover:bg-c2 text-left border-t border-black'
             >
               Delete
             </button>

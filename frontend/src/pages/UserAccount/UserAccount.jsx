@@ -7,10 +7,10 @@ const UserAccount = () => {
     const { userEmail } = useUserProvider();
 
     return (
-        <div className={'bg-custom-gradient bg-cover h-screen w-screen justify-center'}>
+        <div className={'grid grid-rows-[12%_88%] bg-c1 bg-cover h-screen '}>
             <UserNavbar showProfileIcon={true} />
-            <div className={'flex flex-col items-center gap-6 mt-8'}>
-                <p className='text-2xl'>{userEmail}</p>
+            <div className={'flex flex-col items-center justify-center gap-6 mt-8'}>
+                <p className='text-lg'>{userEmail}</p>
                 {/* <SmallButton text='Change Username' className='w-[250px]' onClick={() => console.log('should allow user to change username')} /> */}
                 <FileInput />
                 <DeleteUser />

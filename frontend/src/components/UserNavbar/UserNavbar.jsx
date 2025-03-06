@@ -9,7 +9,7 @@ import { useState } from 'react';
 import SmallButton from '../Buttons/SmallButton';
 import { handleDeleteForm } from '../../utils/api';
 
-const UserNavbar = ({ isCreateMode, showProfileIcon = true }) => {
+const UserNavbar = ({ isCreateMode = false, isWorkspace = false, children, ...rest }) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,31 +21,51 @@ const UserNavbar = ({ isCreateMode, showProfileIcon = true }) => {
     };
 
     return (
-        <div className='flex items-center min-w-screen pb-2 px-20 pt-10 border-gray-800 bg-white/30 justify-between top-0'>
-            <UsernamesWorkspace />
-            <div className={'flex align-right items-center justify-evenly gap-6'}>
-                <UserGreeting />
-                {isCreateMode && (
+        <div className='flex items-center px-28 bg-white/30 border-solid border-black border-b-[1px] justify-between' {...rest}>
+            {isCreateMode ? (
+                <div className={'flex items-center w-full'}>
+                    <ProfileIcon accountSettingsId='accountSettings' profileIconId='profileIcon' />
+                    <UsernamesWorkspace />
+                    <h2 className='px-4'>/</h2>{children}
                     <div className='flex gap-2'>
-                        <ShareButton formId={id} className='bg-transparent border-black border' />
-                        <SmallButton className='bg-transparent border-black border' text='Results' onClick={() => { navigate(`/formAnswers?form=${id}`) }} />
-                        <SmallButton className='bg-transparent border-black border' text='Delete' onClick={() => setIsModalOpen(true)}
+                        <ShareButton formId={id} className='bg-transparent border-black border text-sm' />
+                        <SmallButton className='text-sm' text='Results' onClick={() => { navigate(`/formAnswers?form=${id}`) }} />
+                        <SmallButton className='text-sm' text='Delete' onClick={() => setIsModalOpen(true)}
                         />
                     </div>
-                )}
-                <ConfirmationModal
-                    open={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                    title='Confirm Deletion'
-                    description='Are you sure you want to delete the form?'
-                    onConfirm={() => confirmDelete(id)}
-                    textOnClose='Cancel'
-                    textOnConfirm='Yes'
-                />
-                {showProfileIcon && (
-                    <ProfileIcon accountSettingsId='accountSettings' profileIconId='profileIcon' />
-                )}
-            </div>
+                    <ConfirmationModal
+                        open={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        title='Confirm Deletion'
+                        description='Are you sure you want to delete the form?'
+                        onConfirm={() => confirmDelete(id)}
+                        textOnClose='Cancel'
+                        textOnConfirm='Yes'
+                    />
+                </div>
+            ) : isWorkspace ? (
+                <div className={'flex items-center w-full'}>
+                    <div className={'flex items-center'}>
+                        <ProfileIcon accountSettingsId='accountSettings' profileIconId='profileIcon' />
+                        <UsernamesWorkspace />
+                    </div>
+                    <div className="flex ml-auto justify-between">
+                        {children}
+                    </div>
+                </div>
+
+            ) : (
+                <div className={'flex items-center w-full'}>
+                    <div className={'flex items-center'}>
+                        <ProfileIcon accountSettingsId='accountSettings' profileIconId='profileIcon' />
+                        <UsernamesWorkspace />
+                    </div>
+                    <div className="flex">
+                        {children}
+                    </div>
+                </div>
+            )
+            }
         </div>
     );
 };

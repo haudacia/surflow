@@ -23,14 +23,14 @@ const FormCard = ({ form }) => {
 
   return (
     <div
-      className='relative h-32 text-sm flex flex-col justify-center flex-wrap p-4 shadow-sm rounded-3xl bg-azure hover:shadow-none transition-all duration-500 hover:bg-white'
+      className='group flex h-fit p-4 border-black border-[1px] shadow- cursor-pointer hover:bg-c2 transition-all duration-300 hover:bg-c2 shadow-crisp'
       onClick={() => navigate(`/createform/${form._id}`)}
+      style={{ aspectRatio: '1' }}
     >
-      <div className='absolute top-2 right-2'>
+      <h1 className='overflow-auto w-full h-full text-lg'>{form.title}</h1>
+      <div className='opacity-0 group-hover:opacity-100 group-hover:transition-opacity duration-300'>
         <Dropdown form={form} handleDelete={handleDelete} />
       </div>
-      <p className='mt-6 overflow-auto'>{form.title}</p>
-      <div className='flex flex-row relative top-3 right-'></div>
     </div>
   );
 };

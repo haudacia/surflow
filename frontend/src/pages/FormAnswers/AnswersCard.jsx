@@ -6,7 +6,7 @@ import { questionTypes } from '../../constants/questionTypes.jsx';
 
 const AnswersCard = ({ answerSet, index }) => {
     return (
-        <div key={index} className={'flex align-top m-2 p-8 bg-white/25 rounded-3xl w-fit'}>
+        <div key={index} className={'flex align-top m-2 p-8 bg-white/25 w-fit'}>
 
             {answerSet.answers.map((answer, index) => {
                 const questionType = questionTypes.find(

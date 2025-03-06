@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 450" opacity="0.41">
+    <defs>
+        <filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox"
+            primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation="70" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic"
+                edgeMode="none" result="blur"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g filter="url(#bbblurry-filter)">
+        <ellipse rx="227" ry="226.5" cx="443.5648085318502" cy="518.9630897755914" fill="hsl(37, 99%, 67%)"></ellipse>
+        <ellipse rx="227" ry="226.5" cx="219.2272697909391" cy="319.2279672016583" fill="hsl(316, 73%, 52%)"></ellipse>
+        <ellipse rx="227" ry="226.5" cx="491.5927823842911" cy="178.9695192272326" fill="hsl(185, 100%, 57%)"></ellipse>
+        <ellipse rx="227" ry="226.5" cx="611.115505420581" cy="396.4961889072838" fill="hsl(25, 100%, 64%)"></ellipse>
+        <ellipse rx="227" ry="226.5" cx="677.6401878736865" cy="647.3217566983187" fill="hsl(182, 100%, 67%)"></ellipse>
+        <ellipse rx="227" ry="226.5" cx="346.53309721865037" cy="851.8616727570778" fill="hsl(58, 100%, 71%)"></ellipse>
+        <ellipse rx="227" ry="226.5" cx="712.4406603433561" cy="70.51132201744798" fill="hsl(108, 100%, 80%)"></ellipse>
+    </g>
+</svg>

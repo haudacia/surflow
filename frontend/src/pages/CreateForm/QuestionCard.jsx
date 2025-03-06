@@ -14,11 +14,11 @@ const QuestionCard = ({ question, index, onDragStart, onDragOver, onDrop }) => {
   const icon = questionTypes?.find((questionType) => questionType.value === question.type)?.icon;
 
   return (
-    <div className='relative'>
+    <div className='relative min-w-fit '>
       <li
         className={classNames(
-          'flex border border-1 border-black/50 p-2 rounded-2xl gap-4 w-full items-center text-sm',
-          isSelected ? 'border-1 border-neutral-900 font-semibold' : '',
+          'flex border-[1px] border-b-black h-12 w-full items-center pl-4 gap-4 text-sm',
+          isSelected ? 'bg-c2' : '',
         )}
         draggable
         onDragStart={onDragStart}
@@ -32,7 +32,7 @@ const QuestionCard = ({ question, index, onDragStart, onDragOver, onDrop }) => {
       {index > 0 && (
         <button
           type='button'
-          className='btn btn-square rounded-xl border-none btn-sm absolute right-[5px] top-[6px] text-xl bg-azure hover:bg-white text-black'
+          className='rounded-full absolute right-[24px] top-[12px] text-lg bg- hover:text-4xl hover:top-[4px] hover:right-[19px] text-black transition-all duration-400'
           onClick={() => removeQuestion(index)}
         >
           ×

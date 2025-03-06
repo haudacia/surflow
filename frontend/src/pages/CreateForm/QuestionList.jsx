@@ -8,7 +8,6 @@ import Select from '../../components/Form/Select.jsx';
 
 export const QuestionList = () => {
   const { swapQuestion, addQuestion, setActiveQuestion, questions } = useCustomFormProvider();
-
   const [draggedIndex, setDraggedIndex] = useState(null);
 
   const handleDragStart = (e, index) => {
@@ -41,7 +40,7 @@ export const QuestionList = () => {
   const options = questionTypes.map((questionType) => ({
     value: questionType.value,
     label: (
-      <div className='flex gap-4'>
+      <div className='flex items-center'>
         {questionType.icon}
         {questionType.label}
       </div>
@@ -53,28 +52,31 @@ export const QuestionList = () => {
   };
 
   return (
-    <div className='flex-grow flex flex-col md:w-2/5 w-full rounded-3xl shadow-md bg-white/30 p-10 pb-4 items-center justify-center'>
-      <div className='max-h-42 w-full mb-10'>
-        <Select
-          label='Question Type'
-          value={options.find((option) => option.value === currentType)}
-          onChange={(value) => handleOnChangeType(value)}
-          options={options}
-        />
+    <div className='h-full w-full p-28 border-l-black border-l my-auto flex flex-col justify-center'>
+      <SmallButton type='button' text='+ Add question' onClick={handleAddQuestion} className='w-full mb-6' />
+
+      <Select
+        label='Question Type'
+        value={options.find((option) => option.value === currentType)}
+        onChange={(value) => handleOnChangeType(value)}
+        options={options}
+      />
+      <div className='border-black border-[1px] border-b-0 border-t-0'>
+
+        <ul>
+          {questions.map((question, index) => (
+            <QuestionCard
+              question={question}
+              key={question._id}
+              index={index}
+              onDragStart={(e) => handleDragStart(e, index)}
+              onDrop={(e) => handleOnDrop(e, index)}
+              onDragOver={(e) => handleDragOver(e)}
+            />
+          ))
+          }
+        </ul >
       </div>
-      <ul className='w-full flex-grow overflow-y-auto overflow-x-hidden'>
-        {questions.map((question, index) => (
-          <QuestionCard
-            question={question}
-            key={question.id}
-            index={index}
-            onDragStart={(e) => handleDragStart(e, index)}
-            onDrop={(e) => handleOnDrop(e, index)}
-            onDragOver={(e) => handleDragOver(e)}
-          />
-        ))}
-      </ul>
-      <SmallButton type='button' text='+ Add question' onClick={handleAddQuestion} className='w-full mt-12' />
-    </div>
+    </div >
   );
 };

@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom'
 import { useUserProvider } from '../../context/UserContext';
 
-function UsernamesWorkspace({ children, text, to, ...rest }) {
+function UsernamesWorkspace({ text, to }) {
     const { userName } = useUserProvider();
+    const lastChar = userName[userName.length - 1]
 
     return (
-        <Link className='text-2xl cursor-pointer font-abril-fatface' to={to ? to : '/workspace'}>
-            {text ? text : `${userName}\'s workspace`}
-        </Link>
+        <Link className='flex text-lg pl-4 cursor-pointer min-w-fit' to={to ? to : '/workspace'}>
+            {text ? text : userName}
+            {(lastChar == 'z' || lastChar == 's')
+                ?
+                <p>' workspace</p>
+                :
+                <p>'s workspace</p>
+            }
+        </Link >
     )
 }
 

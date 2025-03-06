@@ -7,6 +7,7 @@ import LargeButton from '../../components/Buttons/LargeButton.jsx';
 import Input from '../../components/Form/Input.jsx';
 import { sendError } from 'zod-express-middleware';
 import { useUserProvider } from '../../context/UserContext.jsx';
+import SmallButton from '../../components/Buttons/SmallButton.jsx';
 
 
 const Login = () => {
@@ -33,9 +34,11 @@ const Login = () => {
   } = useForm({ mode: onSubmit });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-custom-gradient">
-      <div className="bg-white/50 p-16 rounded-3xl shadow-md w-full max-w-md flex flex-col items-center">
-        <h1 className="mb-6 text-center">Welcome back!</h1>
+    <div className="flex items-center justify-center min-h-screen bg-c1">
+      <div className="bg-white/20 p-16 w-full max-w-md flex flex-col items-center">
+        <div className='mb-10'>
+          <img style={{ width: 250 }} src='/Surflow logo@2x.png' alt='Surflow Logo' />
+        </div>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-full flex flex-col items-center">
           <div className="w-full">
             <Input
@@ -73,7 +76,7 @@ const Login = () => {
               </p>
             }
           </div>
-          <LargeButton submit={handleSubmit(onSubmit)} text={"LOGIN"} />
+          <SmallButton submit={handleSubmit(onSubmit)} text={"LOGIN"} />
           <p className="cursor-pointer hover:underline"
             onClick={() => { navigate('/signup') }}>Not registered? Sign Up!</p>
         </form>
